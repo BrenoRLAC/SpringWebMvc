@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background: lightblue;">
+  <h1 th:text="${nome}" style="z-index: 2; position: relative; margin-bottom: 16px;"></h1>
+  <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
+    <img src="https://i0.wp.com/engenharia360.com/wp-content/uploads/2019/05/esta-pessoa-nao-existe-engenharia360-4.png?resize=791%2C785&ssl=1" style="width: 200px; height: 200px; border-radius: 50%; position: relative;" />
+    <div style="background-color: white; border-radius: 10px; padding: 16px;">
+      <p th:text="${texto}" style="margin-bottom: 8px;" />
+      <p th:text="${numeroTelefone}" style="margin-bottom: 8px;" />
+      <p th:text="${dataNascimento}" style="margin-bottom: 8px;" />
+      <p th:text="${linkedin}" style="margin-bottom: 8px;" />
+      <p th:text="${gitHub}" />
+    </div>
+  </div>
+</body>
+</html>
