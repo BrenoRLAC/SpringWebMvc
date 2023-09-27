@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background: lightblue;">
-  <h1 th:text="${nome}" style="z-index: 2; position: relative; margin-bottom: 16px;"></h1>
-  <div style="display: flex; flex-direction: row; align-items: center; gap: 16px;">
-    <img src="https://i0.wp.com/engenharia360.com/wp-content/uploads/2019/05/esta-pessoa-nao-existe-engenharia360-4.png?resize=791%2C785&ssl=1" style="width: 200px; height: 200px; border-radius: 50%; position: relative;" />
-    <div style="background-color: white; border-radius: 10px; padding: 16px;">
-      <p th:text="${texto}" style="margin-bottom: 8px;" />
-      <p th:text="${numeroTelefone}" style="margin-bottom: 8px;" />
-      <p th:text="${dataNascimento}" style="margin-bottom: 8px;" />
-      <p th:text="${linkedin}" style="margin-bottom: 8px;" />
-      <p th:text="${gitHub}" />
+<body style="margin: 0;  background: lightblue;">
+  <h1 th:text="${nome}" style="margin-left: 430px;"/>
+  <div th:style="'display: flex; flex-direction: row; align-items: flex-start; width:100%'">
+    <img src="https://avatars.githubusercontent.com/u/75743151?v=4" style="width:250px; height:300px; border-radius: 50%;" />
+    <div style="display: flex; flex-direction: column;  padding-left: 20px;margin-left: 50px; background: white; border-radius: 5%; width:70%;  box-shadow: 2px 2px  2px 2px #888888;  ">
+    
+      <p>Numero: <span th:text="${numeroTelefone}"></p>
+      <p>Email: <span th:text="${email}"></p>
+      <p>Data de Nascimento: <span th:text="${dataNascimento}"></p>
+      <p>Linkedin: <span th:text="${linkedin}"></p>
+      <p>GitHub: <span th:text="${gitHub}"></p>
     </div>
   </div>
 </body>

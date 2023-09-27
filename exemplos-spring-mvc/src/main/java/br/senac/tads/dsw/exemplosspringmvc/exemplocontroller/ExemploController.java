@@ -5,10 +5,15 @@ import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import modelos.Dados;
 
 @Controller
 @RequestMapping("/exemplo")
@@ -60,8 +65,8 @@ public class ExemploController {
 	public ModelAndView dadosPessoais() {
 	 ModelAndView mv = new ModelAndView("dados-pessoais");
 	 mv.addObject("nome", "Breno Rodrigues Lemos");
-	 mv.addObject("texto", "(11)999999-123");
-	 mv.addObject("numeroTelefone", "breno@senacsp.edu.br");
+	 mv.addObject("numeroTelefone", "(11)999999-123");
+	 mv.addObject("email", "breno@senacsp.edu.br");
 	 mv.addObject("dataNascimento", "10/08/2001");
 	 mv.addObject("linkedin", "linkedin.com/in/breno");
 	 mv.addObject("gitHub", "github.com/user/in/breno");
@@ -72,11 +77,41 @@ public class ExemploController {
 	public ModelAndView dadosPessoaisRecriado() {
 	 ModelAndView mv = new ModelAndView("dados-pessoais-recriado");
 	 mv.addObject("nome", "Breno Rodrigues Lemos");
-	 mv.addObject("texto", "(11)999999-123");
-	 mv.addObject("numeroTelefone", "breno@senacsp.edu.br");
+	 mv.addObject("numeroTelefone", "(11)999999-123");
+	 mv.addObject("email", "breno@senacsp.edu.br");
 	 mv.addObject("dataNascimento", "10/08/2001");
-	 mv.addObject("linkedin", "linkedin.com/in/breno");
-	 mv.addObject("gitHub", "github.com/user/in/breno");
+	 mv.addObject("linkedin", "https://www.linkedin.com/in/breno--carvalho/");
+	 mv.addObject("gitHub", "https://github.com/BrenoRLAC");
 	 return mv;
 	}
+	
+	
+	
+	@GetMapping("/formulario")
+	public ModelAndView dadosFormulario() {
+	    Dados dados = new Dados(); 
+	    ModelAndView mv = new ModelAndView("formulario");
+	    mv.addObject("dados", dados); 
+	    return mv;
+	}
+
+	
+	@PostMapping("/salvar")
+	public ModelAndView salvar(@ModelAttribute Dados dadosRecebidos, RedirectAttributes redirAttr) {
+		 ModelAndView mv = new ModelAndView("redirect:/exemplo/formulario");
+		 
+		   Dados dados = new Dados();
+		   
+		   dados.setEmail(dadosRecebidos.getEmail());
+		   dados.setNome(dadosRecebidos.getNome());
+		   dados.setEmail(dadosRecebidos.getEmail());
+		
+	       mv.addObject("dados", dadosRecebidos);
+	 
+	 redirAttr.addFlashAttribute("dados", dadosRecebidos);
+	 
+	 return mv;
+	 
+	}
+
 }
