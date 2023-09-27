@@ -68,8 +68,8 @@ public class ExemploController {
 	 mv.addObject("numeroTelefone", "(11)999999-123");
 	 mv.addObject("email", "breno@senacsp.edu.br");
 	 mv.addObject("dataNascimento", "10/08/2001");
-	 mv.addObject("linkedin", "linkedin.com/in/breno");
-	 mv.addObject("gitHub", "github.com/user/in/breno");
+	 mv.addObject("linkedin", "https://www.linkedin.com/in/breno--carvalho/");
+	 mv.addObject("gitHub", "https://github.com/BrenoRLAC");
 	 return mv;
 	}
 	
